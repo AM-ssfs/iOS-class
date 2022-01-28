@@ -12,9 +12,9 @@
  */
 var likes = 42
 var comments = 2
-var year = 2019
-var month = "may"
-var day = "monday"
+let year = 2019
+let month = "may"
+let day = "monday"
 /*:
 [Previous](@previous)  |  page 5 of 10  |  [Next: App Exercise - Fitness Tracker: Constant or Variable?](@next)
  */
