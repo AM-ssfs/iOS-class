@@ -10,32 +10,32 @@
  
  1. `9 == 9`
  */
-
-
+print("True")
+9 == 9
 //:  2. `9 != 9`
-
-
+print("False")
+9 != 9
 //:  3. `47 > 90`
-
-
+print("True")
+47 > 90
 //:  4. `47 < 90`
-
-
+print("True")
+47 < 90
 //:  5. `4 <= 4`
-
-
+print("True")
+4 <= 4
 //:  6. `4 >= 5`
-
-
+print("False")
+4 >= 5
 //:  7. `(47 > 90) && (47 < 90)`
-
-
+print("False")
+(47 > 90) && (47 < 90)
 //:  8. `(47 > 90) || (47 < 90)`
-
-
+print("True")
+(47 > 90) || (47 < 90)
 //:  9. `!true`
-
-
+print("Falsw")
+!true
 /*:
 page 1 of 9  |  [Next: Exercise - If and If-Else Statements](@next)
  */
