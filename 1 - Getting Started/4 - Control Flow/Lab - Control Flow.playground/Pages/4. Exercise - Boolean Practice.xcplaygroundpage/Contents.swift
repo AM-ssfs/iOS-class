@@ -24,8 +24,9 @@ let temp = 82
 let isRaining = true
 let isSunny = true
 
-let isNiceWeather = !isRaining || (temp >= 82 && isSunny) ? "I'm going for a walk!" : "The weather is bad!"
-
+let isNiceWeather = (!isRaining || ((temp >= 82) && isSunny)) ? "I'm going for a walk!" : "The weather is bad!"
+//   ^ true? ^
+print(isNiceWeather)
 /*:
 [Previous](@previous)  |  page 4 of 9  |  [Next: App Exercise - Target Heart Rate](@next)
  */
