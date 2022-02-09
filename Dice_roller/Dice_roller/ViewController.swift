@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var resultMainArray = [Array<Any>]()  // access this anywhere
+    var resultMainArray = [Die]()  // access this anywhere
     
 
     override func viewDidLoad() {
@@ -90,13 +90,13 @@ class ViewController: UIViewController {
     
     @IBAction func pressRoll(_ sender: UIButton){
         
-        var D4 = Die(numSides: 4)
-        var D6 = Die(numSides: 6)
-        var D8 = Die(numSides: 8)
-        var D10 = Die(numSides: 10)
-        var D12 = Die(numSides: 12)
-        var D20 = Die(numSides: 20)
-        var D100 = Die(numSides: 100)
+        let D4 = Die(numSides: 4)
+        let D6 = Die(numSides: 6)
+        let D8 = Die(numSides: 8)
+        let D10 = Die(numSides: 10)
+        let D12 = Die(numSides: 12)
+        let D20 = Die(numSides: 20)
+        let D100 = Die(numSides: 100)
         var diceStruct = [D4, D6, D8, D10, D12, D20, D100]
         
          var counter = 0
@@ -124,17 +124,21 @@ class ViewController: UIViewController {
                  
              }
              diceStruct[counter].rolls = resultSubArray // sets dice roll result to the rolls
-             resultMainArray.append(diceStruct[counter].rolls)
-             print(diceStruct[counter].rolls)
+             resultMainArray.append(diceStruct[counter])
+             print(resultMainArray[counter])
              counter+=1
          }
          
-        print(resultMainArray[1])
         
     }
     
 
     
+    
+    
+    @IBAction func pressClear(_ sender: Any) {
+        resultMainArray.removeAll()
+    }
     
     
 

@@ -11,13 +11,7 @@ struct Die{
     let numSides: Int
     var rolls = [Int]()
     
-    
-    func rollDice() -> Array<Any>{
-        let placehold = [1,2,3,4]
-        return placehold
-    }
-    
-    
+
     func sumOfRolls() -> Int{
         var total = 0
         for roll in rolls {
@@ -26,6 +20,12 @@ struct Die{
         return total
     }
     
+    
+    func avrgOfRolls() -> Double{
+        let total = sumOfRolls()
+        let avrg = Double(total / rolls.count)
+        return avrg
+    }
     
     
 }
