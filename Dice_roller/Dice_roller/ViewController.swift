@@ -7,20 +7,33 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
+    
+    var resultMainArray = [Array<Any>]()  // access this anywhere
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var D4 = Die(numSides: 4, rolls: [Int(labelD4.text!)!])
+        var D6 = Die(numSides: 6, rolls: [Int(labelD6.text!)!])
+        var D8 = Die(numSides: 8, rolls: [Int(labelD8.text!)!])
+        var D10 = Die(numSides: 10, rolls: [Int(labelD10.text!)!])
+        var D12 = Die(numSides: 12, rolls: [Int(labelD12.text!)!])
+        var D20 = Die(numSides: 20, rolls: [Int(labelD20.text!)!])
+        var D100 = Die(numSides: 100, rolls: [Int(labelD100.text!)!])
         // Do any additional setup after loading the view.
     }
+    
     
     fileprivate func updateUI(){
     }
     
+
     //gives an array of integer numbers for amount of dice rolled
     fileprivate func listLabels() -> Array<Any>{
         
-        var labelList = [labelD4, labelD6, labelD8, labelD10, labelD12, labelD20, labelD100]
+        let labelList = [labelD4, labelD6, labelD8, labelD10, labelD12, labelD20, labelD100]
         
         var labelArray = [Int]()
         
@@ -82,21 +95,44 @@ class ViewController: UIViewController {
     }
     
     
-     @IBAction func pressRoll(_ sender: UIButton) {
+    @IBAction func pressRoll(_ sender: UIButton){
+         var counter = 0
          let labelList = listLabels()
-         print(labelList[1])
-         print(labelList[6])
-
+         let diceTypes = [4, 6, 8, 10, 12, 20, 100]
+         // resultMainArry moved from here to top
+         for _ in labelList{
+             
+             
+             //this runs once for type of  die
+            
+             var resultSubArray = [Int]()
+             
+             print("")
+             print(labelList[counter])  // numbrer of dice to roll
+             print(diceTypes[counter])  // type of die to roll
+             print("")
+             
+             if (labelList[counter] as! Int) > 0{
+                    
+                 for _ in 1...(labelList[counter] as! Int){
+                     
+                     let tempNumber = Int.random(in: 1...diceTypes[counter])
+                     print(tempNumber)
+                     resultSubArray.append(tempNumber)
+                 }
+                 
+                 resultMainArray.append(resultSubArray)
+             }
+             counter+=1
+             
+             
+             
+             
+         }
+         
     }
     
-   /*
-    func rollDice(diceList) {
-        var something = 0
-        while(something <= 10){
-            print(String(something))
-            something+=1
-        }
-    } */
+
     
     
     
