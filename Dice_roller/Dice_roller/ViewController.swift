@@ -12,16 +12,9 @@ class ViewController: UIViewController {
     
     var resultMainArray = [Array<Any>]()  // access this anywhere
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var D4 = Die(numSides: 4, rolls: [Int(labelD4.text!)!])
-        var D6 = Die(numSides: 6, rolls: [Int(labelD6.text!)!])
-        var D8 = Die(numSides: 8, rolls: [Int(labelD8.text!)!])
-        var D10 = Die(numSides: 10, rolls: [Int(labelD10.text!)!])
-        var D12 = Die(numSides: 12, rolls: [Int(labelD12.text!)!])
-        var D20 = Die(numSides: 20, rolls: [Int(labelD20.text!)!])
-        var D100 = Die(numSides: 100, rolls: [Int(labelD100.text!)!])
         // Do any additional setup after loading the view.
     }
     
@@ -96,40 +89,48 @@ class ViewController: UIViewController {
     
     
     @IBAction func pressRoll(_ sender: UIButton){
+        
+        var D4 = Die(numSides: 4)
+        var D6 = Die(numSides: 6)
+        var D8 = Die(numSides: 8)
+        var D10 = Die(numSides: 10)
+        var D12 = Die(numSides: 12)
+        var D20 = Die(numSides: 20)
+        var D100 = Die(numSides: 100)
+        var diceStruct = [D4, D6, D8, D10, D12, D20, D100]
+        
          var counter = 0
-         let labelList = listLabels()
+         let labelList = listLabels() // this has the number of times to roll for each typr
          let diceTypes = [4, 6, 8, 10, 12, 20, 100]
          // resultMainArry moved from here to top
          for _ in labelList{
              
              
-             //this runs once for type of  die
-            
+             //this runs once for each type of  die
              var resultSubArray = [Int]()
              
              print("")
              print(labelList[counter])  // numbrer of dice to roll
              print(diceTypes[counter])  // type of die to roll
-             print("")
+             //print("")
              
              if (labelList[counter] as! Int) > 0{
                     
                  for _ in 1...(labelList[counter] as! Int){
-                     
                      let tempNumber = Int.random(in: 1...diceTypes[counter])
-                     print(tempNumber)
                      resultSubArray.append(tempNumber)
+                     // print(tempNumber)
                  }
                  
-                 resultMainArray.append(resultSubArray)
              }
+             diceStruct[counter].rolls = resultSubArray // sets dice roll result to the rolls
+             resultMainArray.append(diceStruct[counter].rolls)
+             print(diceStruct[counter].rolls)
              counter+=1
-             
-             
-             
-             
          }
          
+        print(resultMainArray[1])
+        
     }
     
 
