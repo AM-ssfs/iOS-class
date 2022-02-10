@@ -127,6 +127,7 @@ class ViewController: UIViewController {
          }
         
         ResultsOverlay.isHidden = false
+        displayResult()
         // new view over everything with results. still keep 'roll' and 'clear' visible maybe 'roll' becomes 'roll again' and 'clear' shows the sliders again
         
     }
@@ -144,6 +145,21 @@ class ViewController: UIViewController {
     //----------------------   view 2
     //--------------------------------------------
     
+    @IBOutlet weak var eeeee: UILabel!
+    
+    func displayResult(){
+        var count1 = 0
+        var count2 = 0
+        eeeee.text = ""
+        for _ in resultMainArray{
+            for _ in resultMainArray[count1].rolls{
+                eeeee.text! += String(resultMainArray[1].rolls[1])
+                count2 += 1
+            }
+            eeeee.text! += " \n "
+            count1 += 1
+        }
+    }
     
 
 }
