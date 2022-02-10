@@ -12,17 +12,13 @@ class ViewController: UIViewController {
     
     var resultMainArray = [Die]()  // access this anywhere
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
-    
     fileprivate func updateUI(){
     }
     
-
     //gives an array of integer numbers for amount of dice rolled
     fileprivate func listLabels() -> Array<Any>{
         
@@ -46,8 +42,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelD20: UILabel!
     @IBOutlet weak var labelD100: UILabel!
     
-    
-    
     @IBOutlet weak var sliderD4_1: UISlider!
     @IBOutlet weak var sliderD6_1: UISlider!
     @IBOutlet weak var sliderD8_1: UISlider!
@@ -56,8 +50,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var sliderD20_1: UISlider!
     @IBOutlet weak var sliderD100_1: UISlider!
 
-    
-    
     @IBAction func sliderD4_2(_ sender: UISlider) {
         labelD4.text = String(Int(sliderD4_1.value))
         updateUI()
@@ -87,8 +79,9 @@ class ViewController: UIViewController {
         updateUI()
     }
     
-    
     @IBAction func pressRoll(_ sender: UIButton){
+        
+        resultMainArray.removeAll()
         
         let D4 = Die(numSides: 4)
         let D6 = Die(numSides: 6)
@@ -100,7 +93,7 @@ class ViewController: UIViewController {
         var diceStruct = [D4, D6, D8, D10, D12, D20, D100]
         
          var counter = 0
-         let labelList = listLabels() // this has the number of times to roll for each typr
+         let labelList = listLabels() // this has the number of times to roll for each type
          let diceTypes = [4, 6, 8, 10, 12, 20, 100]
          // resultMainArry moved from here to top
          for _ in labelList{
@@ -128,7 +121,8 @@ class ViewController: UIViewController {
              print(resultMainArray[counter])
              counter+=1
          }
-         
+        view.layoutSubviews()
+        // new view over everything with results. still keep 'roll' and 'clear' visible maybe 'roll' becomes 'roll again' and 'clear' shows the sliders again
         
     }
     
