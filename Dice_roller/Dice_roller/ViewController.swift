@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ResultsOverlay.isHidden = true
         // Do any additional setup after loading the view.
     }
     fileprivate func updateUI(){
@@ -33,7 +34,10 @@ class ViewController: UIViewController {
         return labelArray
         
     }
-
+    
+    @IBOutlet var MainView: UIView!
+    @IBOutlet weak var ResultsOverlay: UIView!
+    
     @IBOutlet weak var labelD4: UILabel!
     @IBOutlet weak var labelD6: UILabel!
     @IBOutlet weak var labelD8: UILabel!
@@ -121,18 +125,24 @@ class ViewController: UIViewController {
              print(resultMainArray[counter])
              counter+=1
          }
-        view.layoutSubviews()
+        
+        ResultsOverlay.isHidden = false
         // new view over everything with results. still keep 'roll' and 'clear' visible maybe 'roll' becomes 'roll again' and 'clear' shows the sliders again
         
     }
     
 
-    
+
     
     
     @IBAction func pressClear(_ sender: Any) {
-        resultMainArray.removeAll()
+        ResultsOverlay.isHidden = true
     }
+    
+    
+    //--------------------------------------------
+    //----------------------   view 2
+    //--------------------------------------------
     
     
 
