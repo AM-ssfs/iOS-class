@@ -3,10 +3,11 @@
  
  The `Rectangle` struct below has two properties, one for width and one for height. Add a computed property that computes the area of the rectangle (i.e. width * height). Create an instance of `Rectangle` and print the `area` property.
  */
+
+import Foundation
 struct Rectangle {
     var width: Int
     var height: Int
-    
 }
 
 
