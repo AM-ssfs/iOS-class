@@ -10,7 +10,17 @@ let storedPassword = "a8H1LuK91"
 let enteredUserName = "thefittest11"
 let enteredPassword: String = "a8H1Luk9"
 
-
+if storedUserName.lowercased() == enteredUserName.lowercased(){
+    if storedPassword == enteredPassword{
+        print("you're logged in")
+    }
+    else{
+        print("incorrect username or pass")
+    }
+}
+else{
+    print("account not found")
+}
 /*:
  Now that users can log in, they need to be able to search through a list of users to find their friends. This might normally be done by having the user enter a name, and then looping through all user names to see if a user name contains the search term entered. You'll learn about loops later, so for now you'll just work through one cycle of that. Imagine you are searching for a friend whose user name is StepChallenger. You enter "step" into a search bar and the app begins to search. When the app comes to the user name "stepchallenger," it checks to see if "StepChallenger" contains "step."
 
@@ -20,6 +30,9 @@ import Foundation
 let userName = "StepChallenger"
 let searchName = "step"
 
+if userName.lowercased().contains(searchName.lowercased()){
+    print("user with searched phrase exists: " + userName)
+}
 
 /*:
  _Copyright © 2021 Apple Inc._
