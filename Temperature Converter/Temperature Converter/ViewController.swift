@@ -8,7 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     var isFahrenheit = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -16,19 +18,32 @@ class ViewController: UIViewController {
     
     }
     
-    @IBOutlet weak var temp: UITextField?
+    @IBOutlet weak var textEntry: UITextField!
     
+    @IBOutlet weak var farCelOutlet: UISwitch!
     
-    @IBAction func FarOrCel(_ sender: Any) {
+    @IBAction func farCelSwitch(_ sender: Any) {
         isFahrenheit.toggle()
+        farCelOutlet.setOn(isFahrenheit, animated: true)
+        print(isFahrenheit)
     }
     
     @IBAction func ButtonPress(_ sender: Any) {
         if isFahrenheit{
-            var abc = Double(temp)
-            var thing = Tempature(tempInCelsius: abc).celToFar
+            isFahrenheit = false
+            farCelOutlet.setOn(isFahrenheit, animated: true)
+            var textAsDouble = Double(textEntry.text!)
+            textAsDouble = ( (textAsDouble! - 32) * 5/9 )
+            textAsDouble = String(textAsDouble)
+            textEntry.text = String(textAsDouble!)
+        }
+        else{
+            isFahrenheit = true
+            farCelOutlet.setOn(isFahrenheit, animated: true)
+            var textAsDouble = Double(textEntry.text!)
+            textAsDouble = ( (textAsDouble! * 5/9 ) + 32 )
+            textEntry.text = String(textAsDouble!)
         }
     }
-    
 }
 
