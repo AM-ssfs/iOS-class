@@ -11,6 +11,8 @@ struct User {
     var email: String
     var age: Int
     var currentUser: String
+    func user(){
+    }
 }
 var user = User(userName: "name", email: "name@gmail.com", age: 100, currentUser: "Aden")
 print(user.currentUser)
@@ -19,6 +21,7 @@ print(user.currentUser)
  
  Below, call the `logIn(user:)` method and pass in a different `User` instance than what you assigned to currentUser above. Observe the printout in the console.
  */
+//logIn(user: name)
 
 
 /*:
