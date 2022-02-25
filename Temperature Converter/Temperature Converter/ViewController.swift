@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     @IBAction func farCelSwitch(_ sender: Any) {
         isFahrenheit.toggle()
         farCelOutlet.setOn(isFahrenheit, animated: true)
-        print(isFahrenheit)
+        //print(isFahrenheit)
         convertButtonText()
         
     }
