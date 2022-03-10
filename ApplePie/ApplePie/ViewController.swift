@@ -45,9 +45,10 @@ class ViewController: UIViewController {
     
     @IBAction func letterButtonPressed(_ sender: UIButton) {
         sender.isEnabled = false
-        let letterString = sender.title(for: .normal)!
-        let letter = Character(letterString.lowercased())
+        let letterString = sender.titleLabel!.text
+        let letter = Character(letterString!.lowercased())
         currentGame.playerGuessed(letter: letter)
+        print(letter)
         updateUI()
     }
 
