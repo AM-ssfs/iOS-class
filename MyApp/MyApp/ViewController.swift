@@ -8,7 +8,6 @@
 import UIKit
 
 
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var BigButton: UIButton!
@@ -25,7 +24,8 @@ class ViewController: UIViewController {
     var player = Player(posX: 0.0, posY: 0.0)
     
     @IBAction func buttonPress(_ sender: Any) {
-        player.posX = UITouch.location(in: MyView).x
+        //player.posX = UITouch.location(in: MyView).x
+
     }
     
 
