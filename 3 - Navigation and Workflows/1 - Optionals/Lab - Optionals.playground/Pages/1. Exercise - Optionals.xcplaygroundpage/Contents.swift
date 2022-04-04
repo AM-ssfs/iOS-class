@@ -7,12 +7,14 @@
 
  Declare a constant `userInputAge` of type `String` and assign it "34e" to simulate a typo while typing age. Then declare a constant `userAge` of type `Int` and set its value using the `Int` initializer that takes an instance of `String` as input. Pass in `userInputAge` as the argument for the initializer. What error do you get?
  */
-let userInputAge = "34"
+
+ let userInputAge = "34"
 let userAge: Int?
 userAge = Int(userInputAge)
 if (userAge != nil){
     print(userAge!)
 }
+
 //:  Go back and change the type of `userAge` to `Int?`, and print the value of `userAge`. Why is `userAge`'s value `nil`? Provide your answer in a comment or print statement below.
 // because 34e can't be an int so instead of crashing it is nil
 
@@ -27,6 +29,7 @@ if (userAge != nil){
 if (userAge != nil){
     print(userAge!)
 }
+
 /*:
 page 1 of 6  |  [Next: App Exercise - Finding a Heart Rate](@next)
  */

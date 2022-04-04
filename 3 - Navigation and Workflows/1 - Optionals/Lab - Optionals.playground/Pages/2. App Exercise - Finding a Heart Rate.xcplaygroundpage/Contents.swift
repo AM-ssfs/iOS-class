@@ -7,7 +7,7 @@
 
  Declare a variable `heartRate` of type `Int?` and set it to `nil`. Print the value.
  */
-/*
+
 var heartRate: Int?
 heartRate = nil
 if (heartRate != nil){
@@ -44,4 +44,5 @@ if (hrAverage != nil){
 
 [Previous](@previous)  |  page 2 of 6  |  [Next: Exercise - Functions and Optionals](@next)
  */
-*/
+
+

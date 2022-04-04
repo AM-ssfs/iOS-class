@@ -30,7 +30,7 @@ colorfulShapes["shapes"] = shapesArray
 colorfulShapes["colors"] = colorsArray
 //:  Print the last element of `colorsArray`, accessing it through the dictionary you've created. You'll have to use if-let syntax or the force unwrap operator to unwrap what is returned from the dictionary before you can access an element of the array.
 print(colorfulShapes["colors"]!.last!)
-
+print(colorfulShapes)
 /*:
 [Previous](@previous)  |  page 3 of 4  |  [Next: App Exercise - Pacing](@next)
  */
