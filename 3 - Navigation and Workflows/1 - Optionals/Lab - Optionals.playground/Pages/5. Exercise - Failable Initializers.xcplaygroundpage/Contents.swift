@@ -5,57 +5,30 @@
  */
 
 
-
-
-
-
-/*struct Computer{
-    var ram: Int?
-    var yearManufactured: Int?
+struct Computer {
+    var ram: Int
+    var yearMade: Int
     
-    init?(ramInput:Int?, yearInput:Int?){
-        if let ram = ramInput{
-            if ramInput! > 0{
-                print("ram passed")
-                print(ram)
-                self.ram = ramInput
-            }
-        }
-        else{
-            print("ram invalid")
-            return nil
-        }
-        if let yearManufactured = yearInput{
-            if yearInput! > 1970 && yearInput! < 2020{
-                print("year passed")
-                print(yearManufactured)
-                self.yearManufactured = yearInput
-            }
-        }
-        else{
-            print("year invalid")
-            return nil
-        }
+    init?(ramInput: Int, yearInput: Int){
+        if ramInput > 0{
+            if yearInput > 1970{
+                if yearInput < 2022{
+                    ram = ramInput
+                    yearMade = yearInput
+                }else{return nil}
+            }else{return nil}
+        }else{return nil}
     }
-    
 }
 
-var abc = Computer(ramInput: 32, yearInput: 1995)
-print(abc?.ram)
-print(abc?.yearManufactured)
+var abc = Computer.init(ramInput: -3, yearInput: 2001)
+print(abc?.ram as Any)
+print(abc?.yearMade as Any)
 
-print("")
+abc = Computer.init(ramInput: 40, yearInput: 1995)
+print(abc?.ram as Any)
+print(abc?.yearMade as Any)
 
-abc = Computer.init(ramInput: 485, yearInput: 9999)
-print(abc?.ram)
-print(abc?.yearManufactured)
-
-print("")
-
-abc = Computer.init(ramInput: -3, yearInput: 2001)
-print(abc?.ram)
-print(abc?.yearManufactured)
-*/
 //:  Create two instances of `Computer?` using the failable initializer. One instance should use values that will have a value within the optional, and the other should result in `nil`. Use if-let syntax to unwrap each of the `Computer?` objects and print the `ram` and `yearManufactured` if the optional contains a value.
 
 
