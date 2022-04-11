@@ -52,7 +52,7 @@ if let food = myFood {
     print(food.name)
 }
 else{
-    print("not a food")
+    print("not a food`")
 }
 /*:
  _Copyright © 2021 Apple Inc._

@@ -9,10 +9,30 @@
  
  Call the function a number of times, passing in different values of `steps` and `goal`. Observe the printouts and make sure what is printed to the console is what you would expect for the parameters passsed in.
  */
+func progressUpdate(step: Int, goal: Int){
 
-
+    if step >= goal{
+        print("you're done!")
+    }
+    else if step >= (goal/10)*9{
+        print("so close!")
+    }
+    else if step >= (goal/2){
+        print("over halfway!")
+    }
+    else {
+        print("almost halfway")
+    }
+}
+progressUpdate(step: 90, goal: 39)
+progressUpdate(step: 4, goal: 39)
 //:  Your fitness tracking app is going to help runners stay on pace to reach their goals. Write a function called pacing that takes four `Double` parameters called `currentDistance`, `totalDistance`, `currentTime`, and `goalTime`. Your function should calculate whether or not the user is on pace to hit or beat `goalTime`. If yes, print "Keep it up!", otherwise print "You've got to push it just a bit harder!"
-
+func myFunc(currentD:Double, totalD:Double, currentT:Double, goalT:Double){
+    if (currentD/totalD)>=(currentT/goalT){
+        print("keep it up!")
+    }
+    else{print("try a bit harder")}
+}
 
 /*:
 [Previous](@previous)  |  page 4 of 6  |  [Next: Exercise - Return Values](@next)

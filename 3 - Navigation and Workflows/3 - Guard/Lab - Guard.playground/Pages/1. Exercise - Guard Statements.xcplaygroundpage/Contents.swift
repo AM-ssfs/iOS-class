@@ -10,11 +10,24 @@ import UIKit
 }
 run if true
  */
+/*
+func calculateArea(x: Double, y: Double) -> Double?{
+    guard (x*y) == Double else{
+        return nil
+    }
+    return(Double(x*y))
+}
 
-
+//Cannot convert value of type 'Double.Type' to expected argument type 'Double'
+//Value of type 'Double' has no member 'Type'
 //:  Create a function called `add` that takes two optional integers as parameters and returns an optional integer. You should use one `guard` statement to unwrap both optional parameters, returning `nil` in the `guard` body if one or both of the parameters doesn't have a value. If both parameters can successfully be unwrapped, return their sum. Call the function once with non-`nil` numbers and once with at least one parameter being `nil`.
-
-
+func add(num1: Int, num2: Int) -> Int?{
+    guard? let num1+num2 == Int else{
+        return nil
+    }
+    return(Int(num1+num2))
+}
+*/
 /*:
  When working with UIKit objects, you will occasionally need to unwrap optionals to handle user input. For example, the text fields initialized below have `text` properties that are of type `String?`.
 
