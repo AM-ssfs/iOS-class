@@ -24,8 +24,8 @@ func getWinner(competitors: [User]) -> User? {
     var topCompetitor: User?
 
     for competitor in competitors {
-        if let topCompetitor = topCompetitor {
-            if competitor.stepsToday > topCompetitor.stepsToday {
+        if let competitor = topCompetitor {
+            if competitor.stepsToday > topCompetitor!.stepsToday {
                 topCompetitor = competitor
             }
         } else {
@@ -35,6 +35,7 @@ func getWinner(competitors: [User]) -> User? {
     return topCompetitor
 }
 
+print(getWinner(competitors: competitors)!)
 
 //:  Write a memberwise initializer inside the `User` struct above that uses variable shadowing for naming the parameters of the initializer.
 
