@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     @IBAction func yellowButtonPushed(_ sender: Any) {
         performSegue(withIdentifier: "yellow", sender: nil)
     }
+    @IBAction func greenButtonPushed(_ sender: Any) {
+        performSegue(withIdentifier: "green", sender: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
