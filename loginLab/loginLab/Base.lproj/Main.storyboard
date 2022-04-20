@@ -44,7 +44,7 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="forgotUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BHZ-8C-2h9"/>
+                                            <segue destination="cNW-w0-YXz" kind="show" id="Qwv-US-cXG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QpW-MH-wZm">
@@ -54,7 +54,7 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="forgotPass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mWN-Bv-CH7"/>
+                                            <segue destination="cNW-w0-YXz" kind="show" id="bdb-Pa-abo"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -68,6 +68,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="xGP-JP-OFz"/>
+                    <connections>
+                        <outlet property="passButton" destination="QpW-MH-wZm" id="Ags-aU-Mm1"/>
+                        <outlet property="passEntry" destination="9Zw-rn-5aD" id="Naz-5i-vpo"/>
+                        <outlet property="userButton" destination="VXT-hb-c84" id="53k-eQ-GK9"/>
+                        <outlet property="userEntry" destination="Sm3-gs-VYs" id="mBx-Ra-PP3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,6 +114,9 @@
             <point key="canvasLocation" x="-17.39130434782609" y="55.580357142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Qwv-US-cXG"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

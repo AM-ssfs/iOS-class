@@ -14,16 +14,31 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
+    @IBOutlet weak var userButton: UIButton!
+    @IBOutlet weak var passButton: UIButton!
+    @IBOutlet weak var userEntry: UITextField!
+    @IBOutlet weak var passEntry: UITextField!
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let sender = sender as? UIButton else { return }
+
+        if sender == passButton {
+            segue.destination.navigationItem.title = "Forgot Password"
+        } else if sender == userButton {
+            segue.destination.navigationItem.title = "Forgot Username"
+        } else {
+            segue.destination.navigationItem.title = userEntry.text
+        }
+    }
+    /*
     @IBAction func forgotPass(_ sender: Any) {
-        performSegue(withIdentifier: "pass", sender: nil)
+        performSegue(withIdentifier:"passButton", sender: nil)
     }
     @IBAction func forgotUser(_ sender: Any) {
-        performSegue(withIdentifier: "user", sender: nil)
+        performSegue(withIdentifier:"userButton", sender: nil)
     }
+*/
+
 
 }
 
