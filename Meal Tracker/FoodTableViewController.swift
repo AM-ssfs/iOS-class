@@ -9,7 +9,8 @@ import UIKit
 
 class FoodTableViewController: UITableViewController {
     var meals: [Meal] = [Meal(name: "breakfast", food: [Food(name: "egg", description: "scrambled"), Food(name: "toast", description: "not burnt"), Food(name: "juice", description: "orange")]),
-    Meal(name: "lunch", food: [Food(name: "", description: "")]
+    Meal(name: "lunch", food: [Food(name: "apple", description: "fresh"), Food(name: "", description: ""), Food(name: "", description: "")]
+        )]
     
     override func viewDidLoad() {
         super.viewDidLoad()
