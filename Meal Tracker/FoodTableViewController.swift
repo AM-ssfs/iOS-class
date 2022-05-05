@@ -34,17 +34,21 @@ class FoodTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return meals[ section ].food.count // number of food in that meal
+        return meals[section].food.count // number of food in that meal
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Food", for: indexPath)
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Food", for: indexPath)
         
-        
+        var  myCell = cell.defaultContentConfiguration()
+        myCell.text = meals[indexPath.section].food[indexPath.row].name
+        myCell.secondaryText = meals[indexPath.section].food[indexPath.row].description
+        cell.contentConfiguration = myCell
         // Configure the cell...
         return cell
     }
+    
 
 
 }
