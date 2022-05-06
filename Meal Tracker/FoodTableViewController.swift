@@ -48,6 +48,10 @@ class FoodTableViewController: UITableViewController {
         // Configure the cell...
         return cell
     }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection
+                                section: Int) -> String? {
+        return meals[section].name
+    }
     
 
 
