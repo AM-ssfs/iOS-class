@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36422CDE282D8D6E00A081C0 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36422CDD282D8D6E00A081C0 /* Die.swift */; };
+		36422CE0282D913800A081C0 /* DiceSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36422CDF282D913800A081C0 /* DiceSet.swift */; };
 		36CA68A6282AF008008A72AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CA68A5282AF008008A72AB /* AppDelegate.swift */; };
 		36CA68A8282AF008008A72AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CA68A7282AF008008A72AB /* SceneDelegate.swift */; };
 		36CA68AA282AF008008A72AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CA68A9282AF008008A72AB /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36422CDD282D8D6E00A081C0 /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
+		36422CDF282D913800A081C0 /* DiceSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSet.swift; sourceTree = "<group>"; };
 		36CA68A2282AF008008A72AB /* FinalProject1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CA68A5282AF008008A72AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36CA68A7282AF008008A72AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 			children = (
 				36CA68A5282AF008008A72AB /* AppDelegate.swift */,
 				36CA68A7282AF008008A72AB /* SceneDelegate.swift */,
+				36422CDD282D8D6E00A081C0 /* Die.swift */,
+				36422CDF282D913800A081C0 /* DiceSet.swift */,
 				36CA68A9282AF008008A72AB /* ViewController.swift */,
 				36CA68AB282AF008008A72AB /* Main.storyboard */,
 				36CA68B1282AF00B008A72AB /* Assets.xcassets */,
@@ -262,8 +268,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				36CA68B0282AF008008A72AB /* FinalProject1.xcdatamodeld in Sources */,
+				36422CE0282D913800A081C0 /* DiceSet.swift in Sources */,
 				36CA68AA282AF008008A72AB /* ViewController.swift in Sources */,
 				36CA68A6282AF008008A72AB /* AppDelegate.swift in Sources */,
+				36422CDE282D8D6E00A081C0 /* Die.swift in Sources */,
 				36CA68A8282AF008008A72AB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
