@@ -14,6 +14,11 @@ class ViewController: UIViewController, UITableViewDataSource {
     //let tableViewData = Array(repeating: "Item", count: 5)
     //let tableViewData = [Text("abc").foregroundColor(.red), Text("purple").foregroundColor(.purple)] as [Any]
    
+    
+    // sections are struct with array cells 
+    // change table view data to array of sections (sectionsArray?)
+    
+    
     let tableViewData = ["abc", "123", "E!"]
     var specialText = NSMutableAttributedString()
     
@@ -34,6 +39,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,14 +49,24 @@ class ViewController: UIViewController, UITableViewDataSource {
         doDiceStuff()
     }
     
+    // number of sections in:
+    func numberOfSections(in _: UITableView) -> Int {
+        return 3 // THIS NEEDS TO BE A VARIABLE (return sectionsArray.count)
+    }
+    
+     func tableView(_ tableView: UITableView, titleForHeaderInSection
+                                section: Int) -> String? {
+       return "Header \(section)" // change to name of section (return sectionsArray[section].name)
+     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return self.tableViewData.count
+            return self.tableViewData.count // (sectionsArray[section].cells.count)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
         
-        cell.textLabel?.text = self.tableViewData[indexPath.row]
+        cell.textLabel?.text = self.tableViewData[indexPath.row] // (sectionsArray[section].cells[row].name
         
         
     //https://stackoverflow.com/questions/27728466/use-multiple-font-colors-in-a-single-label
@@ -67,7 +83,6 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func doDiceStuff(){
-
         let dieSet = DiceSet(title: "two D4 and a D6", diceGroup: [builtIns[0], builtIns[0], builtIns[1]])
         print(dieSet.rollDice())
     }
