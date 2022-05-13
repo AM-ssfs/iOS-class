@@ -13,8 +13,20 @@ class ViewController: UIViewController, UITableViewDataSource {
     // https://programmingwithswift.com/create-a-uitableview-with-swift/
     //let tableViewData = Array(repeating: "Item", count: 5)
     //let tableViewData = [Text("abc").foregroundColor(.red), Text("purple").foregroundColor(.purple)] as [Any]
+   
     let tableViewData = ["abc", "123", "E!"]
     var specialText = NSMutableAttributedString()
+    
+    let builtIns: [Die] = [
+        Die(title: "D4", sideCount: 4),
+        Die(title: "D6", sideCount: 6),
+        Die(title: "D8", sideCount: 8),
+        Die(title: "D10", sideCount: 10),
+        Die(title: "D12", sideCount: 12),
+        Die(title: "D20", sideCount: 20)
+    ]
+    
+
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -28,6 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: "TableViewCell")
         tableView.dataSource = self
+        doDiceStuff()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,6 +58,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         specialText.append(NSAttributedString(string: "Text ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.purple]))
         rollResultDetail.attributedText = specialText
         cell.textLabel?.attributedText = specialText
+        
         return cell
 
     }
@@ -52,5 +66,10 @@ class ViewController: UIViewController, UITableViewDataSource {
         print("selected cell \(indexPath.row)")
     }
     
-}
+    func doDiceStuff(){
 
+        let dieSet = DiceSet(title: "two D4 and a D6", diceGroup: [builtIns[0], builtIns[0], builtIns[1]])
+        print(dieSet.rollDice())
+    }
+
+}

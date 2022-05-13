@@ -8,20 +8,21 @@
 import Foundation
 
 struct DiceSet {
+    
     var name: String
     var dice: [Die]
-    var modifier: Int
     
-    init(title: String, diceGroup:[Die], placehodlername:Int){
+    init(title: String, diceGroup:[Die]){
         name = title
         dice = diceGroup
-        modifier = placehodlername
     }
-    func rollDice(){
-        var total: Int = 0
-        for x in dice{
+    
+    func rollDice() -> Int{
+        var total = 0
+        for x in Range(0...dice.count-1){
             total += dice[x].rollDie()
         }
-        total += modifier
+        // modify
+        return total
     }
 }

@@ -10,11 +10,16 @@ import Foundation
 
 struct Die {
     var sides: Int
-    
-    init(sideCount: Int) {
-        sides = sideCount //"sideCount" so no variable shadowing
+    var name: String
+
+    init(title: String, sideCount: Int) {
+        name = title
+        sides = sideCount
     }
-    func rollDie()->Int{
-        return Int.random(in: 0...self.sides)+1
+    
+    func rollDie() -> Int{
+        let rollResult = Int.random(in: 1...self.sides)
+        print("die: \(rollResult)")
+        return rollResult
     }
 }
