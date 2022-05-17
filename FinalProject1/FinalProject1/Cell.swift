@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Cell {
+struct Cells {
     var name: String
     var dice: DiceSet
     

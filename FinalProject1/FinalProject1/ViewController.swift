@@ -7,6 +7,18 @@
 
 import UIKit
 import SwiftUI
+
+var testDie1 = Die(title: "D4", sideCount: 4, colors: .blue)
+var testDie2 = Die(title: "D6", sideCount: 6, colors: .red)
+var testDice = DiceSet(title: "testingDice", diceGroup: [testDie1, testDie2])
+var testCell = Cells(title: "this is a cell", abc: testDice)
+var sections = [
+    
+    Sections(title: "test section header", cell: [testCell]),
+    Sections(title: "multiple sections!", cell: [testCell])
+
+]
+
 class ViewController: UIViewController, UITableViewDataSource {
 
 
@@ -22,14 +34,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     let tableViewData = ["abc", "123", "E!"]
     var specialText = NSMutableAttributedString()
     
-    let builtIns: [Die] = [
-        Die(title: "D4", sideCount: 4),
-        Die(title: "D6", sideCount: 6),
-        Die(title: "D8", sideCount: 8),
-        Die(title: "D10", sideCount: 10),
-        Die(title: "D12", sideCount: 12),
-        Die(title: "D20", sideCount: 20)
-    ]
+    
+
     
 
     
@@ -46,34 +52,40 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: "TableViewCell")
         tableView.dataSource = self
-        doDiceStuff()
+        
+        
+        
+        //doDiceStuff()
     }
     
     // number of sections in:
     func numberOfSections(in _: UITableView) -> Int {
-        return 3 // THIS NEEDS TO BE A VARIABLE (return sectionsArray.count)
+        return sections.count
     }
     
+    //https://developer.apple.com/documentation/uikit/views_and_controls/table_views/adding_headers_and_footers_to_table_sections
      func tableView(_ tableView: UITableView, titleForHeaderInSection
                                 section: Int) -> String? {
-       return "Header \(section)" // change to name of section (return sectionsArray[section].name)
+         return sections[section].header
      }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return self.tableViewData.count // (sectionsArray[section].cells.count)
+        return sections[section].cells.count  //self.tableViewData.count (default working)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
         
-        cell.textLabel?.text = self.tableViewData[indexPath.row] // (sectionsArray[section].cells[row].name
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
+        
+        cell.textLabel?.text = sections[indexPath.section].cells[indexPath.row].name
+        //self.tableViewData[indexPath.row] // (sectionsArray[section].cells[row].name
         
         
     //https://stackoverflow.com/questions/27728466/use-multiple-font-colors-in-a-single-label
         specialText.append(NSAttributedString(string: "Special ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue]))
         specialText.append(NSAttributedString(string: "Text ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.purple]))
         rollResultDetail.attributedText = specialText
-        cell.textLabel?.attributedText = specialText
+        //cell.textLabel?.attributedText = specialText
         
         return cell
 
@@ -82,9 +94,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         print("selected cell \(indexPath.row)")
     }
     
-    func doDiceStuff(){
+   /* func doDiceStuff(){
         let dieSet = DiceSet(title: "two D4 and a D6", diceGroup: [builtIns[0], builtIns[0], builtIns[1]])
         print(dieSet.rollDice())
-    }
+    } */
 
 }

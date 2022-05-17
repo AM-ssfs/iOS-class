@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Section {
-    var name: String
-    var cells: [Cell]
+struct Sections {
+    var header: String
+    var cells: [Cells]
     
-    init(title: String){
-        name = title
-        cells = []
+    init(title: String, cell: [Cells]){
+        header = title
+        cells = cell
     }
 }

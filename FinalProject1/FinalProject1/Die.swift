@@ -6,20 +6,27 @@
 //
 
 import Foundation
+import SwiftUI
 
 
 struct Die {
     var sides: Int
     var name: String
+    var color: UIColor
 
-    init(title: String, sideCount: Int) {
+    init(title: String, sideCount: Int, colors: UIColor) {
         name = title
         sides = sideCount
+        color = colors
     }
     
-    func rollDie() -> Int{
+    func rollDie() -> [Int, NSAttributedString]{
+        
         let rollResult = Int.random(in: 1...self.sides)
-        print("die: \(rollResult)")
-        return rollResult
+        let rollText = NSAttributedString(string: String(rollResult), attributes: [NSAttributedString.Key.foregroundColor: color])
+        
+        return [rollResult, rollText]
     }
+    
+
 }
