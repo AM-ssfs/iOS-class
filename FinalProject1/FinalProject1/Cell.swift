@@ -9,12 +9,13 @@ import Foundation
 import UIKit
 
 struct Cells {
-    var name: String  //NSMutableAttributedString
+    var name: NSMutableAttributedString
     var dice: DiceSet
     
     init(title: String, diceSet: DiceSet){
-        name = title  //NSMutableAttributedString(string: "\(title): ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        name = NSMutableAttributedString(string: "\(title): ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         dice = diceSet
+        name.append(diceSet.name)
     }
     
     

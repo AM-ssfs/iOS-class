@@ -77,7 +77,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         let cell =  tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
         
-        cell.textLabel?.text = sections[indexPath.section].cells[indexPath.row].name
+        cell.textLabel?.attributedText = sections[indexPath.section].cells[indexPath.row].name
         //self.tableViewData[indexPath.row] // (sectionsArray[section].cells[row].name
         
         
@@ -85,7 +85,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         specialText.append(NSAttributedString(string: "Special ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue]))
         specialText.append(NSAttributedString(string: "Text ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.purple]))
         
-        rollResultDetail.attributedText = testDice.rollDice()[1] as! NSMutableAttributedString // YAYAYAYAYAAY IT WORKS!!
+        rollResultDetail.attributedText = testDice.rollDice()[1] as! NSMutableAttributedString // YAYAYAYAYAAY IT WORKS!!2
         //cell.textLabel?.attributedText = specialText
         
         return cell

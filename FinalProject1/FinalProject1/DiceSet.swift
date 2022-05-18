@@ -10,12 +10,15 @@ import UIKit
 
 struct DiceSet {
     
-    var name: String
+    var name: NSMutableAttributedString
     var dice: [Die]
     
     init(title: String, diceGroup:[Die]){
-        name = title
+        name = NSMutableAttributedString(string: "\(title): ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         dice = diceGroup
+        for x in diceGroup{
+            name.append(NSAttributedString(string: x.name, attributes: [NSAttributedString.Key.foregroundColor: x.color]))
+        }
     }
     
     func rollDice() -> [Any]{
