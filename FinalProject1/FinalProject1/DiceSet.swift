@@ -18,6 +18,7 @@ struct DiceSet {
         dice = diceGroup
         for x in diceGroup{
             name.append(NSAttributedString(string: x.name, attributes: [NSAttributedString.Key.foregroundColor: x.color]))
+            name.append(NSAttributedString(string: "+"))
         }
     }
     
@@ -31,10 +32,12 @@ struct DiceSet {
             
             let dieColor = NSAttributedString(string: String(dieResult[0] as! Int), attributes: [NSAttributedString.Key.foregroundColor: x.color])
             rollColored.append(dieColor)
-            rollColored.append(NSAttributedString(string: " + "))
+            rollColored.append(NSAttributedString(string: "+"))
         }
-        result.append(rollSum)
+        result.append(NSMutableAttributedString(string: String(rollSum)))
         result.append(rollColored)
         return result
     }
 }
+
+

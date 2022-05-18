@@ -12,8 +12,8 @@ struct Cells {
     var name: NSMutableAttributedString
     var dice: DiceSet
     
-    init(title: String, diceSet: DiceSet){
-        name = NSMutableAttributedString(string: "\(title): ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+    init(diceSet: DiceSet){
+        name = NSMutableAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         dice = diceSet
         name.append(diceSet.name)
     }
