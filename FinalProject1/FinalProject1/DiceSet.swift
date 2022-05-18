@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct DiceSet {
     
@@ -17,12 +18,20 @@ struct DiceSet {
         dice = diceGroup
     }
     
-    func rollDice() -> Int{
-        var total = 0
-        for x in Range(0...dice.count-1){
-            total += dice[x].rollDie()
+    func rollDice() -> [Any]{
+        var result = [Any]()
+        var rollSum = 0
+        var rollColored = NSMutableAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        for x in dice{
+            let dieResult = x.rollDie()
+            rollSum += dieResult[0] as! Int
+            
+            let dieColor = NSAttributedString(string: String(dieResult[0] as! Int), attributes: [NSAttributedString.Key.foregroundColor: x.color])
+            rollColored.append(dieColor)
+            rollColored.append(NSAttributedString(string: " + "))
         }
-        // modify
-        return total
+        result.append(rollSum)
+        result.append(rollColored)
+        return result
     }
 }

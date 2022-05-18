@@ -11,7 +11,7 @@ import SwiftUI
 var testDie1 = Die(title: "D4", sideCount: 4, colors: .blue)
 var testDie2 = Die(title: "D6", sideCount: 6, colors: .red)
 var testDice = DiceSet(title: "testingDice", diceGroup: [testDie1, testDie2])
-var testCell = Cells(title: "this is a cell", abc: testDice)
+var testCell = Cells(title: "this is a cell", diceSet: testDice)
 var sections = [
     
     Sections(title: "test section header", cell: [testCell]),
@@ -84,7 +84,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     //https://stackoverflow.com/questions/27728466/use-multiple-font-colors-in-a-single-label
         specialText.append(NSAttributedString(string: "Special ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue]))
         specialText.append(NSAttributedString(string: "Text ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.purple]))
-        rollResultDetail.attributedText = specialText
+        
+        rollResultDetail.attributedText = testDice.rollDice()[1] as! NSMutableAttributedString // YAYAYAYAYAAY IT WORKS!!
         //cell.textLabel?.attributedText = specialText
         
         return cell

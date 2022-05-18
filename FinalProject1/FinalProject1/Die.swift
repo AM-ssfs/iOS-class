@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 
 
+//var numberResult = 0
+//var textResult = NSAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor: Color.black])
+
+
 struct Die {
     var sides: Int
     var name: String
@@ -20,13 +24,17 @@ struct Die {
         color = colors
     }
     
-    func rollDie() -> [Int, NSAttributedString]{
+    func rollDie() -> [Any]{
         
-        let rollResult = Int.random(in: 1...self.sides)
-        let rollText = NSAttributedString(string: String(rollResult), attributes: [NSAttributedString.Key.foregroundColor: color])
-        
-        return [rollResult, rollText]
+        var result = [Any]()
+        let numberResult = Int.random(in: 1...self.sides)
+        let textResult = NSAttributedString(string: String(numberResult), attributes: [NSAttributedString.Key.foregroundColor: color])
+        result.append(numberResult)
+        result.append(textResult)
+        return result
     }
+
+    
     
 
 }
