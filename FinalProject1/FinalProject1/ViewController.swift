@@ -10,7 +10,7 @@ import SwiftUI
 
 var testDie1 = Die(title: "D4", sideCount: 4, colors: .blue)
 var testDie2 = Die(title: "D6", sideCount: 6, colors: .red)
-var testDice = DiceSet(title: "testingDice", diceGroup: [testDie1, testDie2])
+var testDice = DiceSet(title: "testingDice", diceGroup: [testDie1, testDie2], modify: 0)
 var testCell = Cells(diceSet: testDice)
 var sections = [
     
@@ -19,7 +19,7 @@ var sections = [
 
 ]
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 
     // https://programmingwithswift.com/create-a-uitableview-with-swift/
@@ -43,7 +43,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: "TableViewCell")
         tableView.dataSource = self
-        
+        tableView.delegate = self
+
         }
     
     
@@ -84,13 +85,16 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         print("e")
 
         let diceRollResult = sections[indexPath.section].cells[indexPath.row].dice.rollDice()
         
+        var rollResultText = NSMutableAttributedString()
+        rollResultText.append(diceRollResult[0] as! NSMutableAttributedString)
+        rollResultText.append(diceRollResult[1] as! NSMutableAttributedString)
+        rollResultDetail.attributedText = rollResultText
         prevRollResult.attributedText = diceRollResult[0] as! NSMutableAttributedString
-        rollResultDetail.attributedText = diceRollResult[1] as! NSMutableAttributedString
-        print("e")
     }
 
     
