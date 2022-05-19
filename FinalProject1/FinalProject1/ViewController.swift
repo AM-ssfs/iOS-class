@@ -10,7 +10,7 @@ import SwiftUI
 
 var testDie1 = Die(title: "D4", sideCount: 4, colors: .blue)
 var testDie2 = Die(title: "D6", sideCount: 6, colors: .red)
-var testDice = DiceSet(title: "testingDice", diceGroup: [testDie1, testDie2], modify: 0)
+var testDice = DiceSet(title: "testingDice", diceGroup: [testDie1, testDie2], modify: -4)
 var testCell = Cells(diceSet: testDice)
 var sections = [
     
@@ -44,7 +44,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                            forCellReuseIdentifier: "TableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
-
+        rollResultDetail.attributedText = NSMutableAttributedString(string: "Prev.\nRoll")
+        prevRollResult.attributedText = NSMutableAttributedString(string: "Prev.\nRoll\nRollEEE")
         }
     
     
@@ -90,13 +91,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         let diceRollResult = sections[indexPath.section].cells[indexPath.row].dice.rollDice()
         
-        var rollResultText = NSMutableAttributedString()
+        // i need location of "/n"
+        let abc = rollResultDetail.attributedText?.string.firstIndex(of: "\n")?.encodedOffset
+        let prevRollTotal = rollResultDetail.attributedText?.attributedSubstring(from: NSRange(location: abc!, length: 2))
+        
+        let rollResultText = NSMutableAttributedString()
+        rollResultText.append(sections[indexPath.section].cells[indexPath.row].dice.name)
+        rollResultText.append(NSAttributedString(string: "\n"))
         rollResultText.append(diceRollResult[0] as! NSMutableAttributedString)
+        rollResultText.append(NSAttributedString(string: " = "))
         rollResultText.append(diceRollResult[1] as! NSMutableAttributedString)
-        rollResultDetail.attributedText = rollResultText
-        prevRollResult.attributedText = diceRollResult[0] as! NSMutableAttributedString
-    }
+        let rollResultTextLines = rollResultText
+        
+        
+        let prevRollResult1 = NSMutableAttributedString(string: "Prev.\n")
+        let prevRollResult2 = rollResultText.attributedSubstring(from: NSRange(location: 0, length: 2))
+        let prevRollResultLines = prevRollResult1
+        prevRollResultLines.append(prevRollResult2)
+        
+        prevRollResult.attributedText = prevRollTotal
+        rollResultDetail.attributedText = rollResultTextLines
 
+    }
     
 
 }
