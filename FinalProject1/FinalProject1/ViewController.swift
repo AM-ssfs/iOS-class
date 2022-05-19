@@ -13,7 +13,7 @@ var testDie2 = Die(title: "D6", sideCount: 6, colors: .red)
 var testDie3 = Die(title: "D20", sideCount: 20, colors: .green)
 var testDie4 = Die(title: "D8", sideCount: 8, colors: .purple)
 var testDice = DiceSet(title: "testingDice", diceGroup: [testDie1, testDie2], modify: -4)
-var testDice2 = DiceSet(title: "testingDiceTwo!!", diceGroup: [testDie1, testDie1], modify: 2)
+var testDice2 = DiceSet(title: "testingDicjnfkaljsdnfljkasdnfeTwo!!", diceGroup: [testDie1, testDie1], modify: 2)
 var testDice3 = DiceSet(title: "dex. saving throw", diceGroup: [testDie3], modify: 4)
 var testDice4 = DiceSet(title: "wis. saving throw", diceGroup: [testDie3], modify: 1)
 var testDice5 = DiceSet(title: "shortsword to-hit", diceGroup: [testDie3], modify: 6)
@@ -55,6 +55,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var rollResultDetail: UILabel!
     @IBOutlet weak var prevRollResult: UILabel!
+    @IBOutlet weak var helpButton: UIButton!
     
     
     
@@ -69,6 +70,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         rollResultDetail.attributedText = NSMutableAttributedString(string: "EEEEEEE\nRoll")
         prevRollResult.attributedText = NSMutableAttributedString(string: "Prev.\nRoll\nRollEEE")
         }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let sender = sender as? UIButton else { return }
+
+        if sender == helpButton {
+            segue.destination.navigationItem.title = "helpPage"
+            }
+        }
+    
+    
     
     
     
