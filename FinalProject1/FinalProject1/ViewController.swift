@@ -11,11 +11,13 @@ import SwiftUI
 var testDie1 = Die(title: "D4", sideCount: 4, colors: .blue)
 var testDie2 = Die(title: "D6", sideCount: 6, colors: .red)
 var testDice = DiceSet(title: "testingDice", diceGroup: [testDie1, testDie2], modify: -4)
+var testDice2 = DiceSet(title: "testingDiceTwo!!", diceGroup: [testDie1, testDie1], modify: 2)
 var testCell = Cells(diceSet: testDice)
+var testCell2 = Cells(diceSet: testDice2)
 var sections = [
     
     Sections(title: "test section header", cell: [testCell]),
-    Sections(title: "multiple sections!", cell: [testCell])
+    Sections(title: "multiple sections!", cell: [testCell2])
 
 ]
 
@@ -92,8 +94,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let diceRollResult = sections[indexPath.section].cells[indexPath.row].dice.rollDice()
         
         // i need location of "/n"
+        let prevRollResult1 = NSMutableAttributedString(string: "Prev.\n")
         let abc = rollResultDetail.attributedText?.string.firstIndex(of: "\n")?.encodedOffset
-        let prevRollTotal = rollResultDetail.attributedText?.attributedSubstring(from: NSRange(location: abc!, length: 2))
+        let prevRollTotal = rollResultDetail.attributedText?.attributedSubstring(from: NSRange(location: abc!+1, length: 2))
+        prevRollResult1.append(prevRollTotal!)
         
         let rollResultText = NSMutableAttributedString()
         rollResultText.append(sections[indexPath.section].cells[indexPath.row].dice.name)
@@ -103,13 +107,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         rollResultText.append(diceRollResult[1] as! NSMutableAttributedString)
         let rollResultTextLines = rollResultText
         
-        
-        let prevRollResult1 = NSMutableAttributedString(string: "Prev.\n")
-        let prevRollResult2 = rollResultText.attributedSubstring(from: NSRange(location: 0, length: 2))
-        let prevRollResultLines = prevRollResult1
-        prevRollResultLines.append(prevRollResult2)
-        
-        prevRollResult.attributedText = prevRollTotal
+    
+        prevRollResult.attributedText = prevRollResult1
         rollResultDetail.attributedText = rollResultTextLines
 
     }
