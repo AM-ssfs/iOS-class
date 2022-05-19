@@ -10,14 +10,34 @@ import SwiftUI
 
 var testDie1 = Die(title: "D4", sideCount: 4, colors: .blue)
 var testDie2 = Die(title: "D6", sideCount: 6, colors: .red)
+var testDie3 = Die(title: "D20", sideCount: 20, colors: .green)
+var testDie4 = Die(title: "D8", sideCount: 8, colors: .purple)
 var testDice = DiceSet(title: "testingDice", diceGroup: [testDie1, testDie2], modify: -4)
 var testDice2 = DiceSet(title: "testingDiceTwo!!", diceGroup: [testDie1, testDie1], modify: 2)
+var testDice3 = DiceSet(title: "dex. saving throw", diceGroup: [testDie3], modify: 4)
+var testDice4 = DiceSet(title: "wis. saving throw", diceGroup: [testDie3], modify: 1)
+var testDice5 = DiceSet(title: "shortsword to-hit", diceGroup: [testDie3], modify: 6)
+var testDice6 = DiceSet(title: "shortsword damage", diceGroup: [testDie2, testDie2], modify: 4)
+var testDice7 = DiceSet(title: "light crossbow to-hit", diceGroup: [testDie3], modify: 6)
+var testDice8 = DiceSet(title: "light crossbow damage", diceGroup: [testDie4], modify: 4)
+
 var testCell = Cells(diceSet: testDice)
 var testCell2 = Cells(diceSet: testDice2)
+var testCell3 = Cells(diceSet: testDice3)
+var testCell4 = Cells(diceSet: testDice4)
+var testCell5 = Cells(diceSet: testDice5)
+var testCell6 = Cells(diceSet: testDice6)
+var testCell7 = Cells(diceSet: testDice7)
+var testCell8 = Cells(diceSet: testDice8)
+
+
 var sections = [
     
     Sections(title: "test section header", cell: [testCell]),
-    Sections(title: "multiple sections!", cell: [testCell2])
+    Sections(title: "multiple sections!", cell: [testCell2]),
+    Sections(title: "saving throws", cell: [testCell3, testCell4]),
+    Sections(title: "combat", cell: [testCell5, testCell6, testCell7, testCell8])
+
 
 ]
 
@@ -46,7 +66,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                            forCellReuseIdentifier: "TableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
-        rollResultDetail.attributedText = NSMutableAttributedString(string: "Prev.\nRoll")
+        rollResultDetail.attributedText = NSMutableAttributedString(string: "EEEEEEE\nRoll")
         prevRollResult.attributedText = NSMutableAttributedString(string: "Prev.\nRoll\nRollEEE")
         }
     
