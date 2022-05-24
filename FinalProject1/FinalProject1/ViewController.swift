@@ -13,7 +13,7 @@ var testDie2 = Die(title: "D6", sideCount: 6, colors: .red)
 var testDie3 = Die(title: "D20", sideCount: 20, colors: .green)
 var testDie4 = Die(title: "D8", sideCount: 8, colors: .purple)
 var testDice = DiceSet(title: "testingDice", diceGroup: [testDie1, testDie2], modify: -4)
-var testDice2 = DiceSet(title: "testingDicjnfkaljsdnfljkasdnfeTwo!!", diceGroup: [testDie1, testDie1], modify: 2)
+var testDice2 = DiceSet(title: "testingDiceTwo (now with uber long name!)!!!!!!", diceGroup: [testDie1, testDie1], modify: 2)
 var testDice3 = DiceSet(title: "dex. saving throw", diceGroup: [testDie3], modify: 4)
 var testDice4 = DiceSet(title: "wis. saving throw", diceGroup: [testDie3], modify: 1)
 var testDice5 = DiceSet(title: "shortsword to-hit", diceGroup: [testDie3], modify: 6)
@@ -53,6 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var rollResultTitle: UILabel!
     @IBOutlet weak var rollResultDetail: UILabel!
     @IBOutlet weak var prevRollResult: UILabel!
     @IBOutlet weak var helpButton: UIButton!
@@ -110,10 +111,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //https://stackoverflow.com/questions/27728466/use-multiple-font-colors-in-a-single-label
 
         
-        //let diceRollResult = sections[indexPath.section].cells[indexPath.row].dice.rollDice()
-        //prevRollResult.attributedText = diceRollResult[0] as! NSMutableAttributedString
-        //rollResultDetail.attributedText = diceRollResult[1] as! NSMutableAttributedString // YAYAYAYAYAAY IT WORKS!!2
-        
         return cell
         
 
@@ -128,20 +125,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // i need location of "/n"
         let prevRollResult1 = NSMutableAttributedString(string: "Prev.\n")
-        let abc = rollResultDetail.attributedText?.string.firstIndex(of: "\n")?.encodedOffset
-        let prevRollTotal = rollResultDetail.attributedText?.attributedSubstring(from: NSRange(location: abc!+1, length: 2))
+        //let abc = rollResultDetail.attributedText?.string.firstIndex(of: "\n")?.encodedOffset
+        let prevRollTotal = rollResultDetail.attributedText?.attributedSubstring(from: NSRange(location: 0, length: 2))
         prevRollResult1.append(prevRollTotal!)
         
+        let rollResultTitle1 = NSMutableAttributedString()
         let rollResultText = NSMutableAttributedString()
-        rollResultText.append(sections[indexPath.section].cells[indexPath.row].dice.name)
-        rollResultText.append(NSAttributedString(string: "\n"))
+        rollResultTitle1.append(sections[indexPath.section].cells[indexPath.row].dice.name)
+        //rollResultText.append(NSAttributedString(string: "\n"))
         rollResultText.append(diceRollResult[0] as! NSMutableAttributedString)
         rollResultText.append(NSAttributedString(string: " = "))
         rollResultText.append(diceRollResult[1] as! NSMutableAttributedString)
+        
         let rollResultTextLines = rollResultText
         
     
         prevRollResult.attributedText = prevRollResult1
+        rollResultTitle.attributedText = rollResultTitle1
         rollResultDetail.attributedText = rollResultTextLines
 
     }
