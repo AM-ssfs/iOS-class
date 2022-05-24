@@ -40,8 +40,8 @@ var sections = [
 
 
 ]
-
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+//https://stackoverflow.com/questions/34157800/set-table-view-into-editing-mode -> 
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate{
 
 
     // https://programmingwithswift.com/create-a-uitableview-with-swift/
@@ -57,6 +57,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var rollResultDetail: UILabel!
     @IBOutlet weak var prevRollResult: UILabel!
     @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var editTableButton: UILabel!
     
     
     
