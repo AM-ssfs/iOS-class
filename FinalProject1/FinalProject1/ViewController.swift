@@ -69,9 +69,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                            forCellReuseIdentifier: "TableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
+        
+        
+        // Use the edit button provided by the view controller.
+          navigationItem.rightBarButtonItem = editButtonItem
+        
+        
+        
         rollResultDetail.attributedText = NSMutableAttributedString(string: "EEEEEEE\nRoll")
         prevRollResult.attributedText = NSMutableAttributedString(string: "Prev.\nRoll\nRollEEE")
         }
+    
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        // Takes care of toggling the button's title.
+        super.setEditing(editing, animated: true)
+
+        // Toggle table view editing.
+        tableView.setEditing(editing, animated: true)
+    }
+    //https://stackoverflow.com/questions/34157800/set-table-view-into-editing-mode
     
     
     
