@@ -55,10 +55,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var rollResultTitle: UILabel!
     @IBOutlet weak var rollResultDetail: UILabel!
+    @IBOutlet weak var bigTitle: UILabel!
     @IBOutlet weak var prevRollResult: UILabel!
     @IBOutlet weak var helpButton: UIButton!
-    @IBOutlet weak var editTableButton: UILabel!
-    
+    @IBOutlet weak var editTableButton: UIButton!
+
     
     
     
@@ -72,7 +73,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         
         // Use the edit button provided by the view controller.
-          navigationItem.rightBarButtonItem = editButtonItem
+        navigationItem.rightBarButtonItem = editButtonItem
         
         
         
@@ -162,6 +163,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         rollResultTitle.attributedText = rollResultTitle1
         rollResultDetail.attributedText = rollResultTextLines
 
+    }
+    @IBAction func setEditButton(_ sender: Any) {
+        print("gsgfgs")
+        bigTitle.text = "Editing Mode"
+        tableView.setEditing(true, animated: true)
     }
     
 

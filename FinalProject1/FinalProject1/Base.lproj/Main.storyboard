@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="khY-l3-PkG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qA3-W5-e7G">
-                                <rect key="frame" x="10" y="88" width="344" height="1354"/>
+                                <rect key="frame" x="10" y="44" width="344" height="1354"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="YNG-Dx-gBR">
                                         <rect key="frame" x="0.0" y="0.0" width="344" height="60"/>
@@ -39,6 +39,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Edit"/>
+                                                <connections>
+                                                    <action selector="setEditButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qjm-EQ-hCc"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="(spacing)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MY-ke-LSq">
                                                 <rect key="frame" x="269" y="0.0" width="15" height="60"/>
@@ -168,9 +171,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qA3-W5-e7G" secondAttribute="trailing" constant="10" id="Uvv-lH-UeX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PBG-Xa-Nao"/>
+                    <navigationItem key="navigationItem" id="7Sa-8k-RDt"/>
                     <connections>
-                        <outlet property="editTableButton" destination="ADK-NZ-RVy" id="thk-7m-OMx"/>
+                        <outlet property="bigTitle" destination="dbJ-8T-PB8" id="QK6-z4-4Wj"/>
+                        <outlet property="editTableButton" destination="hHW-PK-mKW" id="ngV-uu-kIQ"/>
                         <outlet property="helpButton" destination="DaB-mW-2am" id="RBd-z6-dOX"/>
                         <outlet property="prevRollResult" destination="FzX-8p-PvV" id="Se9-f0-tPp"/>
                         <outlet property="rollResultDetail" destination="rtJ-7f-Wy6" id="SHh-b2-PYi"/>
@@ -191,7 +195,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="V4W-Tl-PMg">
-                                <rect key="frame" x="20" y="88" width="394" height="54"/>
+                                <rect key="frame" x="20" y="44" width="394" height="54"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help Page" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8a-sJ-3pS">
                                         <rect key="frame" x="0.0" y="0.0" width="195.5" height="54"/>
@@ -206,13 +210,13 @@
                                             <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="khY-l3-PkG" kind="show" animates="NO" id="APg-GX-PBk"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="cbd-Un-PR1"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbr-Mk-pK8">
-                                <rect key="frame" x="20" y="172" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="128" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -229,30 +233,11 @@
                             <constraint firstItem="aU4-u4-iGI" firstAttribute="trailing" secondItem="V4W-Tl-PMg" secondAttribute="trailing" id="wDZ-EE-tvT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mqu-Cr-rRz"/>
+                    <navigationItem key="navigationItem" id="tY7-ub-hAi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvp-RP-2nH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2868" y="245"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="iXh-oh-BOb">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="khY-l3-PkG" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="gQv-EA-ovp"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X2I-zC-CyT">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Dpj-7U-o5I"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tYs-rG-CSQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="939.13043478260875" y="65.625"/>
         </scene>
     </scenes>
     <resources>
