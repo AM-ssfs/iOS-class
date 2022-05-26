@@ -76,16 +76,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         prevRollResult.attributedText = NSMutableAttributedString(string: "Prev.\nRoll\nRollEEE")
         
         // no navigation controller
-        // Use the edit button provided by the view controller.
+        // " Use the edit button provided by the view controller. "
         navigationItem.rightBarButtonItem = editButtonItem
         }
     
     
     override func setEditing(_ editing: Bool, animated: Bool) {
-        // Takes care of toggling the button's title.
+        //" Takes care of toggling the button's title. "
         super.setEditing(editing, animated: true)
 
-        // Toggle table view editing.
+        // " Toggle table view editing. "
         tableView.setEditing(editing, animated: true)
         
         tableView.reloadData()
@@ -178,6 +178,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             tableView.setEditing(false, animated: true)
         }
 
+    }
+    @IBAction func doSomething(_ sender: Any) {
+        var testSomething = DiceSet(title: "onetwothree", diceGroup: [testDie3], modify: 1)
+        var qwertyiop = Cells(diceSet: testSomething)
+        var aaaaaa = Sections(title: "beep-boop", cell: [qwertyiop])
+        sections.append(aaaaaa)
+        tableView.reloadData()
     }
     
 
