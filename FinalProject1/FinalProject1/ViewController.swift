@@ -59,7 +59,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var prevRollResult: UILabel!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var editTableButton: UIButton!
-
+    @IBOutlet weak var addButton: UIButton!
+    
     
     
     
@@ -79,6 +80,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         rollResultDetail.attributedText = NSMutableAttributedString(string: "EEEEEEE\nRoll")
         prevRollResult.attributedText = NSMutableAttributedString(string: "Prev.\nRoll\nRollEEE")
+        
         }
     
     
@@ -88,6 +90,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         // Toggle table view editing.
         tableView.setEditing(editing, animated: true)
+        
+        tableView.reloadData()
     }
     //https://stackoverflow.com/questions/34157800/set-table-view-into-editing-mode
     
@@ -98,6 +102,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         if sender == helpButton {
             segue.destination.navigationItem.title = "helpPage"
+            
             }
         }
     
@@ -125,15 +130,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell =  tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
         
         cell.textLabel?.attributedText = sections[indexPath.section].cells[indexPath.row].name
-        
-        
     //https://stackoverflow.com/questions/27728466/use-multiple-font-colors-in-a-single-label
 
         
         return cell
-        
-
         }
+
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -165,9 +167,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     }
     @IBAction func setEditButton(_ sender: Any) {
-        print("gsgfgs")
-        bigTitle.text = "Editing Mode"
-        tableView.setEditing(true, animated: true)
+        print("edit/save button pressed")
+        if editTableButton.currentTitleColor == .link{
+            editTableButton.setTitle("Save", for: .normal)
+            editTableButton.tintColor = .green
+            bigTitle.text = "Edit Mode"
+            tableView.setEditing(true, animated: true)
+            
+        }
+        else{
+            editTableButton.setTitle("Edit", for: .normal)
+            editTableButton.tintColor = .link
+            bigTitle.text = "Saved Dice"
+            tableView.setEditing(false, animated: true)
+        }
+
     }
     
 
