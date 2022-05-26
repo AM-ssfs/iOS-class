@@ -72,15 +72,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
         
-        
-        // Use the edit button provided by the view controller.
-        navigationItem.rightBarButtonItem = editButtonItem
-        
-        
-        
         rollResultDetail.attributedText = NSMutableAttributedString(string: "EEEEEEE\nRoll")
         prevRollResult.attributedText = NSMutableAttributedString(string: "Prev.\nRoll\nRollEEE")
         
+        // no navigation controller
+        // Use the edit button provided by the view controller.
+        navigationItem.rightBarButtonItem = editButtonItem
         }
     
     
@@ -139,13 +136,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         print("e")
-
         let diceRollResult = sections[indexPath.section].cells[indexPath.row].dice.rollDice()
-        
-        // i need location of "/n"
         let prevRollResult1 = NSMutableAttributedString(string: "Prev.\n")
+        
+        //now i have two labels for the roll result so a lot of this is extra and can be cleaned up
+        
         //let abc = rollResultDetail.attributedText?.string.firstIndex(of: "\n")?.encodedOffset
         let prevRollTotal = rollResultDetail.attributedText?.attributedSubstring(from: NSRange(location: 0, length: 2))
         prevRollResult1.append(prevRollTotal!)
@@ -168,12 +164,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     @IBAction func setEditButton(_ sender: Any) {
         print("edit/save button pressed")
+        //tableView.isEditing.toggle()
         if editTableButton.currentTitleColor == .link{
             editTableButton.setTitle("Save", for: .normal)
             editTableButton.tintColor = .green
             bigTitle.text = "Edit Mode"
             tableView.setEditing(true, animated: true)
-            
         }
         else{
             editTableButton.setTitle("Edit", for: .normal)
