@@ -134,7 +134,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
 
 
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                        // Delete the row from the data source
+                sections[Int(indexPath.section)].cells.remove(at: indexPath.row)
+                        // Then, delete the row from the table itself
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("e")
         let diceRollResult = sections[indexPath.section].cells[indexPath.row].dice.rollDice()
