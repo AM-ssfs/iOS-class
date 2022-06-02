@@ -36,6 +36,7 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Do Something Button"/>
                                                 <connections>
                                                     <action selector="doSomething:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6nS-Ws-BNt"/>
+                                                    <segue destination="cVc-uY-vus" kind="show" animates="NO" id="AeQ-dz-NKl"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHW-PK-mKW">
@@ -220,7 +221,7 @@
                                             <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="cbd-Un-PR1"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="cbd-Un-PR1"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -249,10 +250,10 @@
             </objects>
             <point key="canvasLocation" x="2984" y="24"/>
         </scene>
-        <!--View Controller-->
+        <!--New View Controller-->
         <scene sceneID="a0k-W7-3UJ">
             <objects>
-                <viewController id="cVc-uY-vus" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="cVc-uY-vus" customClass="NewViewController" customModule="FinalProject1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4nb-fl-Id0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -264,16 +265,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBT-J2-U95">
+                                <rect key="frame" x="105" y="328" width="135" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="testing pass data"/>
+                                <connections>
+                                    <action selector="passStuff:" destination="cVc-uY-vus" eventType="touchUpInside" id="yNE-gc-uBv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ak4-XP-DuW">
+                                <rect key="frame" x="214" y="155" width="56" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="LgY-lH-A6b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1jF-c9-ZDU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fx5-uc-MqM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lE1-dE-QBa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2624" y="843"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="LgY-lH-A6b"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

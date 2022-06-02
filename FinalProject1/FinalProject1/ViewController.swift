@@ -8,6 +8,8 @@
 import UIKit
 import SwiftUI
 
+
+
 var testDie1 = Die(title: "D4", sideCount: 4, colors: .blue)
 var testDie2 = Die(title: "D6", sideCount: 6, colors: .red)
 var testDie3 = Die(title: "D20", sideCount: 20, colors: .green)
@@ -30,6 +32,7 @@ var testCell6 = Cells(diceSet: testDice6)
 var testCell7 = Cells(diceSet: testDice7)
 var testCell8 = Cells(diceSet: testDice8)
 
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate{
 
 var sections = [
     
@@ -41,7 +44,7 @@ var sections = [
 
 ]
 //https://stackoverflow.com/questions/34157800/set-table-view-into-editing-mode -> 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate{
+//class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate{
 
 
     // https://programmingwithswift.com/create-a-uitableview-with-swift/
@@ -60,6 +63,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var editTableButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
+    
+    var amogogos: String = "ee"
     
     
     
@@ -197,7 +202,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var aaaaaa = Sections(title: "beep-boop", cell: [qwertyiop])
         sections.append(aaaaaa)
         tableView.reloadData()
+        print(amogogos)
     }
+    
     
 
 }
