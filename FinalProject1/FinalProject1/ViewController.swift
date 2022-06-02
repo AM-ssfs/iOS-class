@@ -140,6 +140,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 sections[Int(indexPath.section)].cells.remove(at: indexPath.row)
                         // Then, delete the row from the table itself
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                if sections[Int(indexPath.section)].cells.isEmpty{
+                    sections.remove(at: Int(indexPath.section))
+                    tableView.reloadData()
+                }
             }
         }
 
