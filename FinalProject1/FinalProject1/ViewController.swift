@@ -100,13 +100,17 @@ var sections = [
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let sender = sender as? UIButton else { return }
+            guard let sender = sender as? UIButton else { return }
 
         if sender == helpButton {
             segue.destination.navigationItem.title = "helpPage"
-            
-            }
         }
+        if sender == addButton {
+            
+            let newThing = segue.destination as! NewViewController
+            newThing.dumbIdea = sections
+        }
+    }
     
     
     
