@@ -108,7 +108,7 @@ var sections = [
         if sender == addButton {
             
             let newThing = segue.destination as! NewViewController
-            newThing.dumbIdea = sections
+            newThing.dataReciver = sections
         }
     }
     
@@ -204,8 +204,8 @@ var sections = [
         var testSomething = DiceSet(title: "onetwothree", diceGroup: [testDie3], modify: 1)
         var qwertyiop = Cells(diceSet: testSomething)
         var aaaaaa = Sections(title: "beep-boop", cell: [qwertyiop])
-        sections.append(aaaaaa)
-        tableView.reloadData()
+        //sections.append(aaaaaa)
+        //tableView.reloadData()
         print(amogogos)
     }
     
