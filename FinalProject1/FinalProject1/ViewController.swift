@@ -32,17 +32,23 @@ var testCell6 = Cells(diceSet: testDice6)
 var testCell7 = Cells(diceSet: testDice7)
 var testCell8 = Cells(diceSet: testDice8)
 
+var sectionsStorage: [Sections] = []
+
+
+
+
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate{
 
-var sections = [
+    var mainDiceLibrary: [Die] = []
+    var sections = [
+        Sections(title: "test section header", cell: [testCell]),
+        Sections(title: "multiple sections!", cell: [testCell2]),
+        Sections(title: "saving throws", cell: [testCell3, testCell4]),
+        Sections(title: "combat", cell: [testCell5, testCell6, testCell7, testCell8])
+    ]
     
-    Sections(title: "test section header", cell: [testCell]),
-    Sections(title: "multiple sections!", cell: [testCell2]),
-    Sections(title: "saving throws", cell: [testCell3, testCell4]),
-    Sections(title: "combat", cell: [testCell5, testCell6, testCell7, testCell8])
-
-
-]
+    
 //https://stackoverflow.com/questions/34157800/set-table-view-into-editing-mode -> 
 //class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate{
 
@@ -83,6 +89,9 @@ var sections = [
         // no navigation controller
         // " Use the edit button provided by the view controller. "
         navigationItem.rightBarButtonItem = editButtonItem
+        
+        sectionsStorage = sections
+        sections = sectionsStorage
         }
     
     
@@ -109,6 +118,9 @@ var sections = [
             
             let newThing = segue.destination as! NewViewController
             newThing.dataReciver = sections
+            newThing.newDiceLibrary = mainDiceLibrary
+            
+            print(sections.last?.header)
         }
     }
     
@@ -160,6 +172,7 @@ var sections = [
         print("e")
         let diceRollResult = sections[indexPath.section].cells[indexPath.row].dice.rollDice()
         let prevRollResult1 = NSMutableAttributedString(string: "Prev.\n")
+        print(sections)
         
         //now i have two labels for the roll result so a lot of this is extra and can be cleaned up
         
@@ -204,8 +217,8 @@ var sections = [
         var testSomething = DiceSet(title: "onetwothree", diceGroup: [testDie3], modify: 1)
         var qwertyiop = Cells(diceSet: testSomething)
         var aaaaaa = Sections(title: "beep-boop", cell: [qwertyiop])
-        //sections.append(aaaaaa)
-        //tableView.reloadData()
+        sections.append(aaaaaa)
+        tableView.reloadData()
         print(amogogos)
     }
     

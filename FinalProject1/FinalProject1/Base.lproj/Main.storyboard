@@ -420,6 +420,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="add selected">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="addPickedDie:" destination="cVc-uY-vus" eventType="touchUpInside" id="RKo-FJ-eJS"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypW-Ig-8Fr">
                                                 <rect key="frame" x="224" y="0.0" width="150" height="40"/>
@@ -454,7 +457,7 @@
                                                     <constraint firstAttribute="height" constant="60" id="Dbr-7Z-Xtd"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="+/-"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="toggle +/-"/>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ovY-HM-OsM">
                                                 <rect key="frame" x="258.5" y="0.0" width="115.5" height="60"/>
@@ -494,6 +497,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="fx5-uc-MqM"/>
                     <connections>
+                        <outlet property="addedDiceList" destination="d4R-yS-n7z" id="5sW-I4-LD4"/>
                         <outlet property="cancelNewSection" destination="ZOL-bO-mgB" id="mYZ-I1-Gqu"/>
                         <outlet property="createNewSection" destination="1CC-z5-VQ9" id="nL3-9W-PFs"/>
                         <outlet property="hiddenStackNewS" destination="CKm-RQ-W43" id="SR8-TR-Nhm"/>
