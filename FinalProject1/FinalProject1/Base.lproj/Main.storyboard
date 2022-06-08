@@ -479,6 +479,16 @@
                                     <constraint firstItem="zh3-YJ-h85" firstAttribute="top" secondItem="1tf-pJ-kEx" secondAttribute="bottom" id="dLb-1n-SwR"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvh-c9-u5b">
+                                <rect key="frame" x="20" y="554" width="374" height="62"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Done!!!!!!!">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="DoneSelecting:" destination="cVc-uY-vus" eventType="touchUpInside" id="zdK-lo-nIq"/>
+                                </connections>
+                            </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pxe-ci-KIK">
                                 <rect key="frame" x="36" y="748" width="157" height="58"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -489,18 +499,25 @@
                         <constraints>
                             <constraint firstItem="1jF-c9-ZDU" firstAttribute="trailing" secondItem="jEj-fP-X3U" secondAttribute="trailing" constant="20" id="0fG-Fn-prw"/>
                             <constraint firstItem="jEj-fP-X3U" firstAttribute="top" secondItem="GI7-dO-dqj" secondAttribute="bottom" id="16z-Df-McO"/>
+                            <constraint firstItem="1jF-c9-ZDU" firstAttribute="trailing" secondItem="tvh-c9-u5b" secondAttribute="trailing" constant="20" id="5gb-ai-7oB"/>
                             <constraint firstItem="GI7-dO-dqj" firstAttribute="leading" secondItem="1jF-c9-ZDU" secondAttribute="leading" constant="20" id="PJM-zb-Buj"/>
                             <constraint firstItem="jEj-fP-X3U" firstAttribute="leading" secondItem="1jF-c9-ZDU" secondAttribute="leading" constant="20" id="Vgu-Ie-IEC"/>
                             <constraint firstItem="1jF-c9-ZDU" firstAttribute="trailing" secondItem="GI7-dO-dqj" secondAttribute="trailing" constant="20" id="Wur-c9-h0w"/>
+                            <constraint firstItem="tvh-c9-u5b" firstAttribute="leading" secondItem="1jF-c9-ZDU" secondAttribute="leading" constant="20" id="Zuw-VP-MjS"/>
+                            <constraint firstItem="tvh-c9-u5b" firstAttribute="top" secondItem="jEj-fP-X3U" secondAttribute="bottom" id="pDQ-so-h5S"/>
                             <constraint firstItem="GI7-dO-dqj" firstAttribute="top" secondItem="1jF-c9-ZDU" secondAttribute="top" id="xcg-on-Gjk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fx5-uc-MqM"/>
                     <connections>
+                        <outlet property="DiceSetName" destination="PNk-Um-xAQ" id="5t5-cy-Avf"/>
+                        <outlet property="activeSelectedDice" destination="IBW-qe-JWh" id="nTm-Aa-kSK"/>
                         <outlet property="addedDiceList" destination="d4R-yS-n7z" id="5sW-I4-LD4"/>
                         <outlet property="cancelNewSection" destination="ZOL-bO-mgB" id="mYZ-I1-Gqu"/>
                         <outlet property="createNewSection" destination="1CC-z5-VQ9" id="nL3-9W-PFs"/>
                         <outlet property="hiddenStackNewS" destination="CKm-RQ-W43" id="SR8-TR-Nhm"/>
+                        <outlet property="intModifier" destination="ovY-HM-OsM" id="hN9-h3-oeH"/>
+                        <outlet property="newSectionName" destination="vLQ-Km-Cg3" id="7eP-0a-DGZ"/>
                         <outlet property="pickSection" destination="s73-4B-TAY" id="WBX-k4-9Ig"/>
                         <outlet property="pickerTwo" destination="Mfs-cU-LwA" id="rhr-dT-X1C"/>
                         <outlet property="testPicker" destination="Pxe-ci-KIK" id="Sby-HO-krL"/>
