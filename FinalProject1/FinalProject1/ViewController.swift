@@ -37,10 +37,20 @@ var sectionsStorage: [Sections] = []
 
 
 
-
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate{
 
-    var mainDiceLibrary: [Die] = []
+    
+
+
+    var mainDiceLibrary: [Die] = [
+        Die(title: "D4", sideCount: 4, colors: .red),
+        Die(title: "D6", sideCount: 6, colors: .orange),
+        Die(title: "D8", sideCount: 8, colors: .yellow),
+        Die(title: "D10", sideCount: 10, colors: .green),
+        Die(title: "D12", sideCount: 12, colors: .blue),
+        Die(title: "D20", sideCount: 20, colors: .purple)
+    ]
+    
     var sections = [
         Sections(title: "test section header", cell: [testCell]),
         Sections(title: "multiple sections!", cell: [testCell2]),
@@ -118,14 +128,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             let newThing = segue.destination as! NewViewController
             newThing.dataReciver = sections
-            newThing.newDiceLibrary = mainDiceLibrary
             
             print(sections.last?.header)
         }
     }
-    
-    
-    
     
     
     func numberOfSections(in _: UITableView) -> Int {
