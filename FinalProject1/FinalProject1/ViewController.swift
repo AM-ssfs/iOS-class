@@ -88,6 +88,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addButton.isHidden = true
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: "TableViewCell")
         tableView.dataSource = self
@@ -123,13 +124,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         if sender == helpButton {
             segue.destination.navigationItem.title = "helpPage"
+            let newThing = segue.destination as! HelpPage
+            newThing.aaaaa = sections
+            
         }
         if sender == addButton {
             
             let newThing = segue.destination as! NewViewController
             newThing.dataReciver = sections
             
-            print(sections.last?.header)
+            //print(sections.last?.header as Any)
         }
     }
     
@@ -175,10 +179,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("e")
+        //print("e")
         let diceRollResult = sections[indexPath.section].cells[indexPath.row].dice.rollDice()
         let prevRollResult1 = NSMutableAttributedString(string: "Prev.\n")
-        print(sections)
+        //print(sections)
         
         //now i have two labels for the roll result so a lot of this is extra and can be cleaned up
         
@@ -210,22 +214,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             editTableButton.tintColor = .green
             bigTitle.text = "Edit Mode"
             tableView.setEditing(true, animated: true)
+            addButton.isHidden = false
         }
         else{
             editTableButton.setTitle("Edit", for: .normal)
             editTableButton.tintColor = .link
             bigTitle.text = "Saved Dice"
             tableView.setEditing(false, animated: true)
+            addButton.isHidden = true
         }
 
     }
     @IBAction func doSomething(_ sender: Any) {
-        var testSomething = DiceSet(title: "onetwothree", diceGroup: [testDie3], modify: 1)
+        /*var testSomething = DiceSet(title: "onetwothree", diceGroup: [testDie3], modify: 1)
         var qwertyiop = Cells(diceSet: testSomething)
         var aaaaaa = Sections(title: "beep-boop", cell: [qwertyiop])
         sections.append(aaaaaa)
         tableView.reloadData()
-        print(amogogos)
+        print(amogogos)*/
     }
     
     
