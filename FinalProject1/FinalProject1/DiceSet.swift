@@ -15,7 +15,7 @@ struct DiceSet {
     var modifier: Int
     
     init(title: String, diceGroup:[Die], modify:Int){
-        name = NSMutableAttributedString(string: "\(title): ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        name = NSMutableAttributedString(string: "\(title): ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         dice = diceGroup
         modifier = modify
         
